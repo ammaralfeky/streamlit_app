@@ -75,7 +75,7 @@ cnn = load_model_h5()
 
 st.write("""
 # Culture and science city
-# AI-based chest-Xray diagnosis system
+# project: AI-based chest-Xray diagnosis system
 # Chest X-Ray Classification (Pneumonia/Normal)
 """)
 st.write("""
