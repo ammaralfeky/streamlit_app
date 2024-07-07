@@ -69,7 +69,7 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # Load the model
 def load_model_h5():
-    return load_model('/final_model.h5')
+    return load_model('final_model.h5')
 
 cnn = load_model_h5()
 
