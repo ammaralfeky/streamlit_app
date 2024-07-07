@@ -74,10 +74,12 @@ def load_model_h5():
 cnn = load_model_h5()
 
 st.write("""
+# Culture and science city
 # AI-based chest-Xray diagnosis system
+# Chest X-Ray Classification (Pneumonia/Normal)
 """)
 st.write("""
-# Chest X-Ray Classification (Pneumonia/Normal)
+# Made by : Ammar yasser ,Omar essam, Mohammed Afifi 
 """)
 
 temp = st.file_uploader("Upload X-Ray Image")
