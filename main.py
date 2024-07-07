@@ -10,15 +10,14 @@ from tensorflow.keras.preprocessing import image
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-
-@st.cache_resource
+# Load model without caching first
 def loading_model():
     fp = "final_model.keras"
     model_loader = load_model(fp)
     return model_loader
 
-
 cnn = loading_model()
+
 st.write("""
 # AI-based chest-Xray diagnosis system
 """)
