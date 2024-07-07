@@ -1,0 +1,6 @@
+numpy
+streamlit
+Pillow
+keras
+tensorflow
+tempfile
