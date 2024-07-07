@@ -1,16 +1,13 @@
-
 import streamlit as st
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
-import tensorflow as tf
-
-from tempfile import NamedTemporaryFile
 from tensorflow.keras.preprocessing import image
+from tempfile import NamedTemporaryFile
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-# Load model without caching first
+# Load the model without caching
 def loading_model():
     fp = "final_model.keras"
     model_loader = load_model(fp)
@@ -41,17 +38,21 @@ else:
 
     # Preprocessing the image
     pp_hardik_img = image.img_to_array(hardik_img)
-    pp_hardik_img = pp_hardik_img / 255
+    pp_hardik_img = pp_hardik_img / 255.0
     pp_hardik_img = np.expand_dims(pp_hardik_img, axis=0)
 
     # Predict
     hardik_preds = cnn.predict(pp_hardik_img)
     if hardik_preds >= 0.5:
-        out = 'the image has {:.2%} of being Pneumonia case'.format(
-            hardik_preds[0][0])
+        out = 'The image has {:.2%} of being a Pneumonia case'.format(hardik_preds[0][0])
     else:
-        out = 'the image has {:.2%} of being Normal case'.format(
-            1 - hardik_preds[0][0])
+        out = 'The image has {:.2%} of being a Normal case'.format(1 - hardik_preds[0][0])
+
+    st.success(out)
+
+    image = Image.open(temp)
+    st.image(image, use_column_width=True)
+
 
     st.success(out)
 
